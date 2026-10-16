@@ -5,35 +5,148 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1">
-  <title>GQ | Software Developer</title>
+  <title>GQ DevWorks | Software Developer</title>
   <style>
+    :root {
+      --ink: #18273c;
+      --accent: #1765ba;
+      --paper: #ffffff;
+      --mist: #f7f8fa;
+    }
+    * { box-sizing: border-box; }
     body {
       font-family: Arial, sans-serif;
-      background: #f7f8fa;
+      background: var(--mist);
       color: #252b36;
       margin: 0;
       line-height: 1.6;
     }
     header {
-      background: #18273c;
+      background: var(--ink);
       color: white;
       padding: 65px 20px;
       text-align: center;
     }
     main {
-      max-width: 850px;
+      max-width: 1050px;
       margin: auto;
       padding: 25px;
     }
     section { margin: 35px 0; }
     .project {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
+      background: var(--paper);
+      padding: 28px;
+      border-radius: 14px;
       margin: 15px 0;
       border: 1px solid #e1e5eb;
     }
-    a { color: #1765ba; }
+    a { color: var(--accent); }
+    .project-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .project-heading h3 { margin: 0; }
+    .project-type {
+      color: #536174;
+      font-size: .9rem;
+      white-space: nowrap;
+    }
+    .project-description { max-width: 760px; }
+    .project-details {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(230px, .65fr);
+      gap: 24px;
+      margin-top: 22px;
+    }
+    .feature-list { margin: 0; padding-left: 20px; }
+    .feature-list li { margin: 7px 0; }
+    .project-meta {
+      margin: 0;
+      padding: 16px 18px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      background: #f1f6fc;
+    }
+    .project-meta p { margin: 0 0 10px; }
+    .project-meta p:last-child { margin-bottom: 0; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .skills-grid li {
+      padding: 14px 16px;
+      border: 1px solid #e1e5eb;
+      border-radius: 10px;
+      background: var(--paper);
+    }
+    .skills-grid strong { color: var(--ink); }
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .screenshot {
+      margin: 0;
+      border: 1px solid #e1e5eb;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 3px 10px rgba(24, 39, 60, .08);
+    }
+    .screenshot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .screenshot figcaption {
+      padding: 9px 11px;
+      font-size: .9rem;
+      font-weight: bold;
+      color: #536174;
+    }
+    @media (max-width: 700px) {
+      header { padding: 45px 20px; }
+      main { padding: 20px; }
+      .project { padding: 20px; }
+      .project-heading { align-items: flex-start; flex-direction: column; gap: 4px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .screenshots { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
+    .availability {
+      margin: 0 0 18px;
+      padding: 14px 18px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      background: #f1f6fc;
+    }
+    .availability p { margin: 0; }
+    .contact-intro { margin: 0 0 14px; }
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .contact-link {
+      display: inline-block;
+      padding: 9px 14px;
+      border: 1px solid #cbd8e8;
+      border-radius: 8px;
+      background: var(--paper);
+      color: var(--accent);
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .contact-link:hover, .contact-link:focus-visible {
+      background: #edf5ff;
+      text-decoration: underline;
+    }
     footer {
       text-align: center;
       padding: 25px;
@@ -49,30 +162,117 @@
   <main>
     <section>
       <h2>About Me</h2>
-      <p>I'm a software developer with 10+ years of experience. I enjoy building practical applications that solve real-world problems.</p>
+      <p>I'm a software developer with 10+ years of experience. I'm excited to keep learning and improving my skills. I enjoy knowing that the applications I build or update are useful to people.</p>
     </section>
     <section>
       <h2>Technical Skills</h2>
-      <p>C#, ASP.NET Core, PHP, Laravel, Java, Python, Flutter, Dart, JavaScript, SQL, and Microsoft Dynamics 365 Business Central.</p>
+      <ul class="skills-grid">
+        <li><strong>Programming:</strong> C#, PHP, Java, Dart, Python, JavaScript, AL, Bash</li>
+        <li><strong>Web Development:</strong> ASP.NET Core, ASP.NET MVC, Blazor, Vue.js</li>
+        <li><strong>ERP:</strong> Microsoft Dynamics 365 Business Central (AL), C#, DevExpress</li>
+        <li><strong>UI Components:</strong> Telerik Web, DevExpress</li>
+        <li><strong>Mobile Development:</strong> Android Native (Java), Flutter (Dart), Windows CE (C#)</li>
+        <li><strong>Databases:</strong> MySQL, SQL, SQLite</li>
+        <li><strong>Systems &amp; Deployment:</strong> Linux, Raspberry Pi, Docker</li>
+        <li><strong>Protocols &amp; Integration:</strong> MQTT, REST API</li>
+        <li><strong>Development Tools:</strong> Visual Studio, VS Code, GitHub, Postman, PhpStorm, Android Studio</li>
+      </ul>
     </section>
     <section>
       <h2>My Projects</h2>
-      <div class="project">
-        <h3>Personal Application</h3>
-        <p>A personal software project. Screenshots and feature details will be added soon.</p>
+      <article class="project">
+        <div class="project-heading">
+          <h3>Dog Care Planner</h3>
+          <span class="project-type">Personal app <span class="project-status">In active development</span></span>
+        </div>
+        <p class="project-description">An in-progress, local-first Android app I use and test personally to organize a dog's daily care, medication, veterinary history, and care logs. It keeps essential records, schedules, and photos together while giving owners control over backup and restore.</p>
+        <div class="project-details">
+          <div>
+            <h4>Key capabilities</h4>
+            <ul class="feature-list">
+              <li>Dog profiles with photos, medical records, vaccinations, heat-cycle tracking, and veterinarian history.</li>
+              <li>Recurring medication, vitamin, prevention, and deworming plans with flexible intervals and advance reminders.</li>
+              <li>Month and week log calendars with daily care details, notes, and photo-based dog identification.</li>
+              <li>Structured veterinary visits, including reason, diagnosis, tests, X-ray details, and weight tracking.</li>
+              <li>User-controlled full backup and restore through local storage, Google Drive, OneDrive, and nearby device transfer.</li>
+            </ul>
+          </div>
+          <aside class="project-meta" aria-label="Dog Care Planner technology">
+            <p><strong>Stack</strong><br>Flutter, Dart, Kotlin</p>
+            <p><strong>Storage</strong><br>Drift (SQLite), local-first</p>
+            <p><strong>Backup</strong><br>Optional Google Drive, OneDrive, local, and nearby-transfer backups</p>
+            <p><strong>Privacy</strong><br>No ads, analytics, or tracking</p>
+          </aside>
+        </div>
+        <div class="screenshots" aria-label="Dog Care Planner screenshots">
+          <figure class="screenshot">
+            <img src="images/dog_care_planner/RUID16c0cc5d04b840749e3730a463ca3ffa.jpg" alt="Dog Care Planner log summary screen">
+            <figcaption>Log summary</figcaption>
+          </figure>
+          <figure class="screenshot">
+            <img src="images/dog_care_planner/RUID36f81594cac541c2834a6fe6a98b9f36.jpg" alt="Dog Care Planner medication schedule screen">
+            <figcaption>Medication schedule</figcaption>
+          </figure>
+          <figure class="screenshot">
+            <img src="images/dog_care_planner/RUID4d8b5aaad7eb44d6be287e5abedaa370.jpg" alt="Dog Care Planner dog profile screen">
+            <figcaption>Dog profiles</figcaption>
+          </figure>
+          <figure class="screenshot">
+            <img src="images/dog_care_planner/RUID81ee8dbf250b43b09ba7658c721c1069.jpg" alt="Dog Care Planner care log screen">
+            <figcaption>Care logs</figcaption>
+          </figure>
+        </div>
         <p><strong>Source code:</strong> Private</p>
-      </div>
+      </article>
+      <article class="project">
+        <div class="project-heading">
+          <h3>Grocery Ledger</h3>
+          <span class="project-type">Personal app <span class="project-status">In development</span></span>
+        </div>
+        <p class="project-description">A simple, local-first Flutter grocery list for planning monthly shopping. It is a working personal app that is still under development.</p>
+        <div class="project-details">
+          <div>
+            <h4>Key capabilities</h4>
+            <ul class="feature-list">
+              <li>Monthly grocery planning with bought-item checkboxes, quantities, unit prices, and configurable currency symbols.</li>
+              <li>Quickly copy items from a previous month or clear the selected month's list when planning afresh.</li>
+              <li>Budget-concern status to highlight items that need a purchase decision.</li>
+              <li>Local JSON backup export, validated restore, and manual phone-to-phone data transfer.</li>
+            </ul>
+          </div>
+          <aside class="project-meta" aria-label="Grocery Ledger technology">
+            <p><strong>Stack</strong><br>Flutter and Dart</p>
+            <p><strong>Storage</strong><br>Drift (SQLite), local-first</p>
+            <p><strong>Privacy</strong><br>No account, cloud sync, analytics, or tracking</p>
+          </aside>
+        </div>
+        <div class="screenshots" aria-label="Grocery Ledger screenshots">
+          <figure class="screenshot">
+            <img src="images/grocery_ledger/RUID32a7793454aa4d21a0618e3eb29017e0.jpg" alt="Grocery Ledger monthly grocery list">
+            <figcaption>Monthly grocery list</figcaption>
+          </figure>
+          <figure class="screenshot">
+            <img src="images/grocery_ledger/RUIDa6b0a17ccdbd40528af19d89d6305488.jpg" alt="Grocery Ledger item editing screen">
+            <figcaption>Item editing</figcaption>
+          </figure>
+          <figure class="screenshot">
+            <img src="images/grocery_ledger/RUIDff459c520d6048f0b9ec3f997f30b4cf.jpg" alt="Grocery Ledger settings screen">
+            <figcaption>Settings and backup</figcaption>
+          </figure>
+        </div>
+        <p><strong>Source code:</strong> Private</p>
+      </article>
     </section>
     <section>
       <h2>Contact</h2>
-      <p>Email:
-        <a href="mailto:gq.dev@tuta.com">gq.dev@tuta.com</a>
-      </p>
-      <p>
-        <a href="https://github.com/gqdevworks">
-          My GitHub Profile
-        </a>
-      </p>
+      <div class="availability">
+        <p><strong>Availability:</strong> Open to freelance software-development projects.</p>
+      </div>
+      <p class="contact-intro">Have a project in mind? Let's connect.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:gq.dev@tuta.com">Email me</a>
+        <a class="contact-link" href="https://github.com/gqdevworks">View GitHub</a>
+      </div>
     </section>
   </main>
   <footer>GQ DevWorks · Software Development Portfolio</footer>
